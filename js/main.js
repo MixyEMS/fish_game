@@ -23,21 +23,21 @@ var my;
 
 var baby;
 
-function game(){
-	init();
-	lastTime = Date.now();
-	detalTime = 0;
-	gameloop();
+function game() {
+    init();
+    lastTime = Date.now();
+    detalTime = 0;
+    gameloop();
 }
 
-function init(){
-	//获取canvas context
-	can1 = document.getElementById("canvas1");//fish dust  ui
-	ctx1 = can1.getContext("2d");
-	can2 = document.getElementById("canvas2");//bg fruits ane
-	ctx2 = can2.getContext("2d");
-    
-    can1.addEventListener("mousemove",onMouseMove);
+function init() {
+    //获取canvas context
+    can1 = document.getElementById("canvas1"); //fish dust  ui
+    ctx1 = can1.getContext("2d");
+    can2 = document.getElementById("canvas2"); //bg fruits ane
+    ctx2 = can2.getContext("2d");
+
+    can1.addEventListener("mousemove", onMouseMove);
 
     bgPic.src = 'src/background.jpg';
     canWidth = can1.width;
@@ -52,37 +52,37 @@ function init(){
     Mom = new momObj();
     Mom.init();
 
-    mx=canWidth*0.5;
-    my=canHeight*0.5;
+    mx = canWidth * 0.5;
+    my = canHeight * 0.5;
 
     baby = new babyObj();
     baby.init();
-    
+
 
 }
 
-function gameloop(){
-	requestAnimFrame(gameloop);
-	var now = Date.now();
-	detalTime = now - lastTime;
-	lastTime = now;
+function gameloop() {
+    requestAnimFrame(gameloop);
+    var now = Date.now();
+    detalTime = now - lastTime;
+    lastTime = now;
 
-	drawBackground();
-	ane.draw();
-	fruit.draw();
-	fruitMonitor();
+    drawBackground();
+    ane.draw();
+    fruit.draw();
+    fruitMonitor();
 
-	ctx1.clearRect(0,0,canWidth,canHeight);
-	Mom.draw();
+    ctx1.clearRect(0, 0, canWidth, canHeight);
+    Mom.draw();
 
-	momFruitCollision();
+    momFruitCollision();
 
-	baby.draw();
+    baby.draw();
 }
 
-function onMouseMove(e){
-	if(e.offsetX||e.layerX){
-		 mx = e.offsetX?e.offsetX:e.layerX;
-		 my =  e.offsetY?e.offsetY:e.layerY;
-	}
+function onMouseMove(e) {
+    if (e.offsetX || e.layerX) {
+        mx = e.offsetX ? e.offsetX : e.layerX;
+        my = e.offsetY ? e.offsetY : e.layerY;
+    }
 }
