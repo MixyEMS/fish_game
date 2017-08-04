@@ -18,7 +18,7 @@ fruitObj.prototype.init = function() {
         this.alive[i] = false;
         this.spd[i] = Math.random() * 0.8 + 0.05;
         // this.born(i);
-        if (Math.random() < 0.7) {
+        if (Math.random() < 0.8) {
             this.fruitType[i] = "orange"
         } else {
             this.fruitType[i] = "blue";
@@ -84,7 +84,7 @@ function fruitMonitor() {
         }
     }
 
-    if (num < 15) {
+    if (num < 12) {
 
         sendFruit();
     }
