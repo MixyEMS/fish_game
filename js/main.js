@@ -33,6 +33,13 @@ var momBodyBlue = [];
 
 var data;
 
+var wave ;
+
+var halo;
+
+var dustPic=[];
+var dust;
+
 function game() {
     init();
     lastTime = Date.now();
@@ -96,6 +103,20 @@ function init() {
 
     data = new dataObj();
 
+    wave =new waveObj();
+    wave.init();
+
+    halo = new haloObj();
+    halo.init();
+
+    for(var i =0;i<7;i++){
+         dustPic[i] = new Image();
+        dustPic[i].src='src/dust'+i+'.png';
+    }
+
+    dust = new dustObj();
+    dust.init();
+
 }
 
 function gameloop() {
@@ -117,6 +138,11 @@ function gameloop() {
 
     baby.draw();
     data.draw();
+
+    wave.draw();
+    halo.draw();
+
+    dust.draw();
 }
 
 function onMouseMove(e) {

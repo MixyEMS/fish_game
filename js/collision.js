@@ -9,6 +9,7 @@ function momFruitCollision() {
                 fruit.dead(i);
                 data.fruitNum++;
                 Mom.momBodyCount++;
+                wave.born(fruit.x[i],fruit.y[i]);
                 if(Mom.momBodyCount>7){
                 	Mom.momBodyCount = 7;
                 }
@@ -33,6 +34,7 @@ function momBabyCollision() {
                data.addScore();
                data.reset();
                Mom.momBodyCount = 0;
+                halo.born(baby.x,baby.y);
             }
         }
     }
